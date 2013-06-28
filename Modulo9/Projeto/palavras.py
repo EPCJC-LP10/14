@@ -5,22 +5,22 @@ from collections import namedtuple
 import menu
 
 
-alunoReg = namedtuple("alunoReg", "id, nome")
-listaAlunos = []
+palavraReg = namedtuple("palavraReg", "id, palavra")
+listaPalavras = []
 
 
 
 def encontrar_posicao(codigo):
     pos = -1
-    for i in range (len(listaAlunos)):
-        if listaAlunos[i].id == codigo:
+    for i in range (len(listaPalavras)):
+        if listaPalavras[i].id == codigo:
             pos = i
             break
                             
     return pos
 
 
-def inserir_aluno():
+def inserir_palavra():
     cod = input("Qual o codigo? ")
 
     pos = encontrar_posicao(cod)
@@ -32,55 +32,42 @@ def inserir_aluno():
     #ler dados
     nome = raw_input("Qual o nome? ")
     
-    registo = alunoReg(cod, nome)
-    listaAlunos.append(registo)
+    registo = palavraReg(cod, nome)
+    listaPalavras.append(registo)
 
-
-def pesquisar_aluno():
-    cod = input("Qual o codigo do aluno a pesquisar? ")
-
-    pos = encontrar_posicao(cod)
-
-    if pos == -1:
-        print "Não existe aluno com esse código"
-        return
-
-    print "Código: ", listaAlunos[pos].id
-    print "Nome: ", listaAlunos[pos].nome
     
 
-
-def listar_alunos():
-    for i in range (len(listaAlunos)):
-        print "Código: ", listaAlunos[i].id
-        print "Nome: ", listaAlunos[i].nome
+def listar_Palavras():
+    for i in range (len(listaPalavras)):
+        print "Código: ", listaPalavras[i].id
+        print "Palavra: ", listaPalavras[i].palavra
         
   
 
-def eliminar_aluno():
-    cod = input ("Código do aluno a eliminar --> ")
+def eliminar_palavra():
+    cod = input ("Código da palavra a eliminar --> ")
     pos = encontrar_posicao(cod)
 
     if pos == -1:
-        print "Não existe aluno com esse código"
+        print "Não existe nenhuma palavra com esse código"
         return
 
     # TODO: Confirmar eliminação
-    listaAlunos.pop(pos)
+    listaPalavras.pop(pos)
 
 
     
-def alterar_aluno():
-    cod = input ("Código do aluno a alterar --> ")
+def alterar_Palavra():
+    cod = input ("Código da palavra a alterar --> ")
     pos = encontrar_posicao(cod)
 
     if pos == -1:
-        print "Não existe aluno com esse código"
+        print "Não existe nenhuma palavra com esse código"
         return
 
     # só altera o nome
-    novonome = raw_input("Qual o nome? ")
-    listaAlunos[pos] = listaAlunos[pos]._replace(nome=novonome)
+    novapalavra = raw_input("Qual e a palavra ")
+    listaPalavras[pos] = listaPalavras[pos]._replace(palavra=novapalavra)
 
 
 

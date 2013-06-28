@@ -1,21 +1,23 @@
 # -*- coding: utf-8 -*-
 
 import menu
-import alunos
+import palavras
 import util
 
 
 # nome dos ficheiros
-fxAlunos = "fxAlunos.dat"
+fxpalavras = "Palavras.dat"
+fxartigos = "Artigos.dat"
 
 def ler_ficheiros():
-	# adicionar todos ficheiros a ler
-	alunos.listaAlunos = util.ler_ficheiro(fxAlunos)
-
+    # adicionar todos ficheiros a ler
+    palavras.listaPalavras = util.ler_ficheiro(fxpalavras)
+    artigos.listaArtigos = util.ler_ficheiro(fxartigos)
 
 def escrever_ficheiros():
-	# adicionar todos ficheiros a guardar
-	util.escrever_ficheiro(fxAlunos, alunos.listaAlunos)
+    #adicionar todos ficheiros a guardar
+    util.escrever_ficheiro(fxpalavras, palavras.listaPalavras)
+    util.escrever_ficheiro(fxartigos, artigos.listaArtigos)
 
 
 
@@ -28,7 +30,7 @@ while not terminar:
     op = menu.principal()
     
     if op == '1':
-        alunos.gerir()
+        palavras.gerir()
     elif op == '2':
         pass    #por fazer
     elif op == '0':
