@@ -32,7 +32,7 @@ while not terminar:
     if op == '1':
         palavras.gerir()
     elif op == '2':
-        pass    #por fazer
+        Artigos.gerir
     elif op == '0':
         terminar = True
 
